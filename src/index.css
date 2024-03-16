@@ -201,6 +201,15 @@ footer a:hover {
   /*줄바꿈&정해진 섹션 외에 밖으로 글이 나가지 않음*/
 }
 
+.post__category {
+  color: var(--font-color);
+  border: 1px solid var(--background-solid-color);
+  background-color: #fff;
+  padding: 0px 4px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
 /*profile*/
 
 .profile__box {
@@ -393,7 +402,7 @@ input:checked + .carousel__slide-container .nav label {
   padding: 10px 10px;
   font-size: 16px;
   border-radius: 0.3rem;
-  border: 1px solid #9db2bf;
+  border: 1px solid var(--background-solid-color);
   width: 96%;
   max-width: 680px;
 }
@@ -433,7 +442,7 @@ input:checked + .carousel__slide-container .nav label {
 
 .form .form__btn--submit:hover,
 .form .form__btn--submit:focus {
-  background-color: #27374d;
+  background-color: var(--logo-color);
 }
 
 /*login form*/
@@ -462,6 +471,14 @@ input:checked + .carousel__slide-container .nav label {
 .form__error {
   color: red;
   font-size: 10px;
+}
+
+.form select {
+  height: 40px;
+  padding: 0px 20px;
+  border-radius: 0.3rem;
+  border: 1px solid var(--background-solid-color);
+  max-width: 680px;
 }
 
 /*loader*/

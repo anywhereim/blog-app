@@ -12,11 +12,11 @@ import { db } from "firebaseApp";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Posts } from "types/posts-types";
+import { CATEGORIES, CategoryType, Posts } from "types/posts-types";
 
 interface PostListProps {
   hasNavigation?: boolean;
-  defaultTab?: TabType;
+  defaultTab?: TabType | CategoryType;
 }
 
 type TabType = "all" | "my";
@@ -25,7 +25,9 @@ export default function PostList({
   hasNavigation = true,
   defaultTab = "all",
 }: PostListProps) {
-  const [activeTab, setActiveTab] = useState<TabType>(defaultTab);
+  const [activeTab, setActiveTab] = useState<TabType | CategoryType>(
+    defaultTab
+  );
   const [posts, setPosts] = useState<Posts[]>([]);
   const { user } = useContext(AuthContext);
 
@@ -43,9 +45,18 @@ export default function PostList({
         //firebase에서 주는 매서드로 오름차순&내림차순 정렬을 줄 수 있음.
         orderBy("createAt", "asc")
       );
-    } else {
+    } else if (activeTab === "all") {
       //전체글
       postsQuery = query(postRef, orderBy("createAt", "asc"));
+    } else {
+      //카테고리 별 보여주기
+      postsQuery = query(
+        postRef,
+        //firebase에서 주는 메서드로 uid가 같은 값만 필터링 할 수 있음
+        where("category", "==", activeTab),
+        //firebase에서 주는 매서드로 오름차순&내림차순 정렬을 줄 수 있음.
+        orderBy("createAt", "asc")
+      );
     }
 
     const datas = await getDocs(postsQuery);
@@ -87,6 +98,18 @@ export default function PostList({
           >
             나의 글
           </div>
+          {CATEGORIES?.map((category) => (
+            <div
+              key={category}
+              role="presentation"
+              onClick={() => setActiveTab(category)}
+              className={
+                activeTab === category ? "post__navigation--active" : ""
+              }
+            >
+              {category}
+            </div>
+          ))}
         </div>
       )}
       <div className="post__list">
