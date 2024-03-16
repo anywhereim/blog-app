@@ -23,10 +23,10 @@ code {
 header {
   display: flex;
   justify-content: space-between;
-  /* flex-direction: row-reverse; */
   border-bottom: 1px solid var(--background-solid-color);
   padding: 10px 40px;
   align-items: center;
+  position: relative;
 }
 
 header .header__logo {
@@ -43,6 +43,22 @@ header a {
 header a:focus,
 header a:hover {
   color: var(--font-color-hover);
+}
+
+.header__theme-btn-dark {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+  color: var(--font-color);
+}
+
+.header__theme-btn-light {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+  color: #fba834;
 }
 
 /* footer */
@@ -151,7 +167,9 @@ footer a:hover {
 }
 
 .post__delete:hover,
-.post__delete:focus {
+.post__delete:focus,
+.post__delete a:hover,
+.post__delete a:focus {
   color: var(--font-color-hover);
 }
 
@@ -495,4 +513,47 @@ input:checked + .carousel__slide-container .nav label {
   border-radius: 50%;
   z-index: 9999;
   animation: rotation 1s linear infinite;
+}
+
+/* dark mode */
+
+/* CSS transition
+웹 요소에 속성변화를 부드럽게 만들어주는 속성 */
+
+.white {
+  transition: all 0.25s linear;
+  background-color: white;
+}
+
+.dark {
+  transition: all 0.25s linear;
+  background-color: #191919;
+  min-height: 100vh;
+}
+
+.dark a,
+.dark .form label,
+.dark .post__delete,
+.dark .profile__logout,
+.dark .form__title,
+.dark .post__navigation--active,
+.dark .post__title,
+.dark .profile__email,
+.dark .profile__name,
+.dark .post__no-post {
+  color: white;
+}
+
+.dark a:hover,
+.dark a:focus {
+  color: #b5c0d0;
+}
+
+.dark .form__text {
+  color: #b4b4b8;
+}
+
+.dark footer,
+.dark header {
+  background-color: #000000;
 }

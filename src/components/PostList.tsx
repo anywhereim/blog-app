@@ -43,11 +43,11 @@ export default function PostList({
         //firebase에서 주는 메서드로 uid가 같은 값만 필터링 할 수 있음
         where("uid", "==", user?.uid),
         //firebase에서 주는 매서드로 오름차순&내림차순 정렬을 줄 수 있음.
-        orderBy("createAt", "asc")
+        orderBy("createAt", "desc")
       );
     } else if (activeTab === "all") {
       //전체글
-      postsQuery = query(postRef, orderBy("createAt", "asc"));
+      postsQuery = query(postRef, orderBy("createAt", "desc"));
     } else {
       //카테고리 별 보여주기
       postsQuery = query(
@@ -55,7 +55,7 @@ export default function PostList({
         //firebase에서 주는 메서드로 uid가 같은 값만 필터링 할 수 있음
         where("category", "==", activeTab),
         //firebase에서 주는 매서드로 오름차순&내림차순 정렬을 줄 수 있음.
-        orderBy("createAt", "asc")
+        orderBy("createAt", "desc")
       );
     }
 
@@ -130,13 +130,13 @@ export default function PostList({
                   <Link to={`/posts/edit/${post?.id}`} className="post__edit">
                     수정
                   </Link>
-                  <div
+                  <a
                     className="post__delete"
                     role="presentation"
                     onClick={() => handleDelete(post?.id as string)}
                   >
                     삭제
-                  </div>
+                  </a>
                 </div>
               )}
             </div>

@@ -12,7 +12,7 @@ export default function PostForm() {
   const [title, setTitle] = useState<string>("");
   const [summary, setSummary] = useState<string>("");
   const [content, setContent] = useState<string>("");
-  const [category, setCategory] = useState<CategoryType>("Frontend");
+  const [category, setCategory] = useState<CategoryType>();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
