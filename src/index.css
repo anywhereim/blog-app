@@ -1,4 +1,5 @@
 :root {
+  --light--font--color: #b4b4b8;
   --font-color: #526d82;
   --font-color-hover: #161a30;
   --background-solid-color: #9db2bf;
@@ -513,6 +514,106 @@ input:checked + .carousel__slide-container .nav label {
   border-radius: 50%;
   z-index: 9999;
   animation: rotation 1s linear infinite;
+}
+
+/* comment */
+
+.comments {
+  width: 100%;
+  color: var(--font-color);
+}
+
+.comments__form label {
+  font-weight: 600;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.comments__form textarea {
+  min-height: 100px;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  border: 1px solid var(--background-solid-color);
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.comments__form .form__block {
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.comments__form .form__btn--submit {
+  width: 100px;
+  height: 36px;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: var(--background-solid-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.form__block-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.comments__form .form__btn--submit:hover,
+.comments__form .form__btn--submit:focus {
+  background-color: var(--logo-color);
+}
+
+.comment__list {
+  margin-top: 40px;
+  margin-bottom: 100px;
+}
+
+.comment__box {
+  padding: 12px 0px;
+  border-bottom: 1px solid var(--background-solid-color);
+}
+
+.comment__profile-box {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.comment__email {
+  font-weight: 500;
+  color: var(--font-color);
+}
+
+.comment__date {
+  color: var(--light--font--color);
+  font-size: 13px;
+}
+
+.comment__delete {
+  color: var(--light--font--color);
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.comment__delete:hover,
+.comment__delete:focus {
+  color: var(--font-color);
+}
+
+.comment__text {
+  font-size: 14px;
+  padding-top: 4px;
 }
 
 /* dark mode */

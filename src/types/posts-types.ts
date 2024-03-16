@@ -1,3 +1,5 @@
+import { CommentsType } from "./comments-type";
+
 export interface Posts {
   id?: string;
   title: string;
@@ -8,6 +10,7 @@ export interface Posts {
   updataAt: string;
   uid: string;
   category?: CategoryType;
+  comments?: CommentsType[];
 }
 
 export type CategoryType = "Frontend" | "Backend" | "Web" | "Native";
