@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    //절대경로 설정 법: src 해주기
+    "baseUrl": "src",
+
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src"],
+  //절대경로 설정 법: 폴더이름 절대경로 설정해주기
+  "paths": {
+    "pages/*": ["pages/*"],
+    "components/*": ["components/*"],
+    // "image/*": ["public/image/*"],
+    "firebaseApp/*": ["firebaseApp/*"],
+    "context/*": ["context/*"]
+  }
+}
