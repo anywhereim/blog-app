@@ -35,7 +35,11 @@ export default function PostForm() {
           title,
           summary,
           content,
-          updateAt: new Date()?.toLocaleString(),
+          createAt: new Date()?.toLocaleString("ko", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          }),
         });
         toast?.success("게시글을 수정했습니다.");
         navigate(`/posts/${post.id}`);
@@ -45,11 +49,15 @@ export default function PostForm() {
           title,
           summary,
           content,
-          createAt: new Date()?.toLocaleString(),
+          createAt: new Date()?.toLocaleString("ko", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          }),
           email: user?.email,
           uid: user?.uid,
         });
-        toast?.success("게시글을 생성했습니다.");
+        toast?.success(`게시글을 생성했습니다.`);
         navigate("/");
       }
     } catch (error: any) {
@@ -82,7 +90,7 @@ export default function PostForm() {
     if (id) {
       const docRef = doc(db, "post", id);
       const docSnap = await getDoc(docRef);
-      setPost({ id: docSnap.id, ...(docSnap.data() as Posts) });
+      setPost({ ...(docSnap.data() as Posts), id: docSnap.id });
     }
   };
 

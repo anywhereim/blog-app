@@ -260,7 +260,7 @@ footer a:hover {
 ul.carousel__slides {
   display: block;
   position: relative;
-  height: 300px;
+  height: 400px;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -307,7 +307,7 @@ ul.carousel__slides input {
   right: 0;
   z-index: 999;
   font-size: 100px;
-  line-height: 300px;
+  line-height: 400px;
   color: #fff;
 }
 
@@ -399,7 +399,7 @@ input:checked + .carousel__slide-container .nav label {
 }
 
 .form textarea {
-  min-height: 300px;
+  min-height: 400px;
   padding: 10px 10px;
   font-size: 16px;
   border-radius: 0.3rem;
@@ -408,7 +408,7 @@ input:checked + .carousel__slide-container .nav label {
   max-width: 680px;
 }
 .form .form__block {
-  margin-top: 20px;
+  margin-top: 30px;
   width: 100%;
 }
 
